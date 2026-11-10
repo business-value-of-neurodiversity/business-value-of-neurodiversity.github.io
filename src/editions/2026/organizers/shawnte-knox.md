@@ -1,7 +1,7 @@
 ---
-name: "Shawnte Knox"
-title: "Employer Relations Specialist, Jewish Family & Community Services (JFCS) - Career Services in Pittsburgh"
-photo: ""
+name: Shawnte Knox
+title: Employer Relations Specialist, Jewish Family & Community Services (JFCS) - Career Services in Pittsburgh
+photo: /assets/images/editions/2026/people/pasted-image-1794348208496.png
 order: 12
 ---
 
