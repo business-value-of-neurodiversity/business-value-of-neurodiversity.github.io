@@ -41,6 +41,12 @@
       "url": "https://s3d.cmu.edu/",
       "logo": "/assets/images/series/s3d.png",
       "description": "Part of the School of Computer Science at CMU"
+    },
+    {
+      "name": "VariAbility Lab",
+      "url": "https://cmu-variability.github.io",
+      "logo": "/assets/images/series/variability logo (for web).png",
+      "description": "Our research mission is to create inclusive workplaces where all people can be successful, without discrimination, especially those with disabilities and the neurodivergent."
     }
   ],
   "team_link_label": "Meet the organizers of our most recent forum"
