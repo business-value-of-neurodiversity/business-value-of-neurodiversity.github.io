@@ -1,0 +1,94 @@
+---
+layout: layouts/event.njk
+pagination:
+  data: events
+  size: 1
+  alias: ev
+permalink: "/events/{{ ev.slug }}/"
+eleventyComputed:
+  title: "Overview · {{ editions[ev.slug].event.menu_label }}"
+---
+{% set d = editions[ev.slug] %}
+{% if d.event.logo %}
+<section class="hero">
+  <div class="wrap">
+    <img class="hero-logo" src="{{ d.event.logo | url }}" alt="{{ d.event.title }}: {{ d.event.subtitle }}. {{ d.event.date }}">
+    {% if d.home.headline_line1 %}<p class="hero-line"><span class="accent">{{ d.home.headline_line1 }}</span><br>{{ d.home.headline_line2 }}</p>{% endif %}
+    {% include "partials/register-button.njk" %}
+  </div>
+</section>
+{% else %}
+<section class="hero">
+  <div class="wrap">
+    <h1 class="series-title">{{ d.event.title }}</h1>
+    {% if d.event.subtitle %}<p class="hero-line"><span class="accent">{{ d.event.subtitle }}</span></p>{% endif %}
+    {% if d.event.date %}<p class="lead">{{ d.event.date }}</p>{% endif %}
+    {% if d.home.headline_line1 %}<p class="hero-line">{{ d.home.headline_line1 }}<br>{{ d.home.headline_line2 }}</p>{% endif %}
+    {% include "partials/register-button.njk" %}
+  </div>
+</section>
+{% endif %}
+
+{% if d.home.focus_areas | length %}
+<section class="band dark">
+  <div class="wrap">
+    <h2>{{ d.home.overview_title }}</h2>
+    <h3>{{ d.home.focus_areas_title }}</h3>
+    <ul class="focus-list">
+      {%- for f in d.home.focus_areas %}<li>{{ f }}</li>{% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}
+
+{% if d.home.audiences | length %}
+<section class="band">
+  <div class="wrap">
+    <h2>{{ d.home.attend_title }}</h2>
+    <p class="lead">{{ d.home.attend_intro }}</p>
+    <div class="audience-grid">
+      {%- for a in d.home.audiences %}
+      <article class="audience">
+        <h3><span class="small">Takeaways for</span>{{ a.name }}</h3>
+        <ul>
+          {%- for t in a.takeaways %}<li>{{ t }}</li>{% endfor %}
+        </ul>
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if d.hosts.hosts | length %}
+<section class="band tint">
+  <div class="wrap">
+    <h2>{{ d.home.hosts_title }}</h2>
+    <h3 class="center">{{ d.home.hosted_by_label }}</h3>
+    <div class="host-row">
+      {%- for h in d.hosts.hosts %}
+      <a class="host" href="{{ h.url }}">
+        {%- if h.logo %}<img src="{{ h.logo | url }}" alt="{{ h.name }}" loading="lazy">{% endif %}
+        <span>{{ h.name }}</span>
+        <small>{{ h.subtitle }}</small>
+      </a>
+      {%- endfor %}
+    </div>
+    {% if d.home.sponsors_label %}<h3 class="center">{{ d.home.sponsors_label }}</h3>
+    <p class="center"><a class="button ghost" href="{{ ('/events/' + ev.slug + '/event-sponsors/') | url }}">{{ d.home.sponsors_link_label }}</a></p>{% endif %}
+    {% if d.home.organizers_blurb %}<p class="center narrow">{{ d.home.organizers_blurb }}</p>
+    <p class="center"><a class="button ghost" href="{{ ('/events/' + ev.slug + '/organizers/') | url }}">{{ d.home.organizers_link_label }}</a></p>{% endif %}
+  </div>
+</section>
+{% endif %}
+
+{% if d.home.closing_cta %}
+<section class="band dark center">
+  <div class="wrap">
+    <h2>{{ d.event.date }}</h2>
+    <p class="lead">{{ d.event.time }}{% if d.event.location_detail %} · {{ d.event.location_detail }}, {{ d.event.location_name }}{% endif %}</p>
+    <p class="lead">{{ d.home.closing_cta }}</p>
+    {% include "partials/register-button.njk" %}
+  </div>
+</section>
+{% endif %}

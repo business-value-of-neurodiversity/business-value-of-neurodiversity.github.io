@@ -1,0 +1,32 @@
+{
+  "logo": "/assets/images/series/forum-series-logo.png",
+  "logo_alt": "Innovating Pittsburgh: The Business Value of Neurodiversity",
+  "mission_title": "Our Mission",
+  "mission": "Innovating Pittsburgh builds a network of employers, educators, service providers, and neurodivergent professionals to spark business impact and sustained change through neurodiversity.",
+  "audience_title": "Who the Forum Is For",
+  "audience_intro": "Whether you already champion neuroinclusive workplaces or are just getting started, the forum is for people who shape how work gets done and who gets the opportunity to do it. Employers from non-profit and for-profit organizations are welcome.",
+  "audiences": [
+    {
+      "name": "Managers & Supervisors",
+      "description": "Team leaders who want practical ways to support, retain, and develop neurodivergent employees."
+    },
+    {
+      "name": "Human Resource Professionals",
+      "description": "Recruiters and talent leaders reaching for untapped talent and building inclusive hiring, onboarding, and accommodation practices."
+    },
+    {
+      "name": "Executive & Senior Leaders",
+      "description": "Decision makers who want evidence of neurodiversity's role in innovation, ROI, and organizational culture."
+    },
+    {
+      "name": "Workplace Allies",
+      "description": "Colleagues and community partners who want to build understanding and help every coworker belong."
+    }
+  ],
+  "upcoming_eyebrow": "Our Next Forum",
+  "upcoming_pending": "Details are coming soon. Check back for the date, venue, speakers, and registration.",
+  "learn_more_label": "Learn More",
+  "past_title": "Past Forums",
+  "past_all_label": "All past events",
+  "no_upcoming": "The next forum has not been announced yet."
+}

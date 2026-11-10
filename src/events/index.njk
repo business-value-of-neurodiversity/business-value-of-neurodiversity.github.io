@@ -1,0 +1,12 @@
+---
+layout: layouts/page.njk
+permalink: /events/
+title: Past Events
+eleventyComputed:
+  hero_title: "{{ series.past_title }}"
+---
+{% set cards = events | pastEditions(editions) %}
+<div class="wrap">
+  {% if not (cards | length) %}<p class="empty">No past forums yet.</p>{% endif %}
+  {% include "partials/edition-cards.njk" %}
+</div>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title and page.url != "/" %}{{ title }} · {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ description or site.description }}">
+  <link rel="icon" href="{{ site.favicon | url }}">
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | url }}">
+</head>
+<body class="page-{{ page.fileSlug or 'home' }}">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  {% if ev %}{% include "partials/edition-header.njk" %}{% else %}{% include "partials/header.njk" %}{% endif %}
+  <main id="main">
+    {{ content | safe }}
+  </main>
+  {% include "partials/footer.njk" %}
+  <script>
+    (function () {
+      var header = document.querySelector(".site-header");
+      var toggle = header && header.querySelector(".nav-toggle");
+      function setOpen(open) {
+        header.classList.toggle("open", open);
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      }
+      if (toggle) toggle.addEventListener("click", function () { setOpen(!header.classList.contains("open")); });
+      document.addEventListener("keydown", function (e) {
+        if (e.key !== "Escape") return;
+        if (header && header.classList.contains("open")) { setOpen(false); toggle.focus(); }
+        else if (document.activeElement && document.activeElement.closest(".has-sub")) document.activeElement.blur();
+      });
+    })();
+  </script>
+</body>
+</html>

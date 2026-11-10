@@ -1,0 +1,51 @@
+---
+layout: layouts/event.njk
+pagination:
+  data: events
+  size: 1
+  alias: ev
+permalink: "/events/{{ ev.slug }}/organizers/"
+eleventyComputed:
+  title: "Organizers · {{ editions[ev.slug].event.menu_label }}"
+---
+{% set d = editions[ev.slug] %}
+{% set hero_title = d.organizers.title or "Forum Organizers" %}{% set hero_tagline = d.organizers.tagline %}
+{% include "partials/page-hero.njk" %}
+{% set people = collections.organizers | forEdition(ev.slug) %}
+<div class="wrap">
+  <div class="narrow-col">
+    {%- for p in d.organizers.intro %}<p class="lead">{{ p }}</p>{% endfor %}
+  </div>
+  {% if d.organizers.mission | length %}
+  <section>
+    <h2>{{ d.organizers.mission_title }}</h2>
+    <ul class="mission-grid">
+      {%- for m in d.organizers.mission %}
+      <li><h3>{{ m.title }}</h3><p>{{ m.text }}</p></li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {% endif %}
+  {% if d.hosts.hosts | length %}
+  <section>
+    <h2>{{ d.organizers.hosts_title }}</h2>
+    <div class="host-row">
+      {%- for h in d.hosts.hosts %}
+      <a class="host" href="{{ h.url }}">
+        {%- if h.logo %}<img src="{{ h.logo | url }}" alt="{{ h.name }}" loading="lazy">{% endif %}
+        <span>{{ h.name }}</span>
+        <small>{{ h.description }}</small>
+      </a>
+      {%- endfor %}
+    </div>
+  </section>
+  {% endif %}
+  <section>
+    <h2>{{ d.organizers.network_title or "The Network" }}</h2>
+    {% if not people.length %}<p class="empty">Organizers will be listed here soon.</p>{% endif %}
+    {%- for organizer in people %}
+    {% set person = organizer %}
+    {% include "partials/person.njk" %}
+    {%- endfor %}
+  </section>
+</div>

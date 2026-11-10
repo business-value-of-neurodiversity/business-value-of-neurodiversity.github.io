@@ -1,0 +1,18 @@
+{
+  "title": "Forum Organizers",
+  "tagline": "The Network Behind the Innovating Pittsburgh Forum",
+  "intro": [
+    "This partnership reflects the mission of this forum: building a network to spark business impact and sustained change through neurodiversity.",
+    "Our planning team lives the principle, nothing with us without us, with ten neurodivergent organizers at the table."
+  ],
+  "mission_title": "The Mission",
+  "mission": [
+    { "title": "Workforce Development", "text": "Shaping pathways that connect neurodivergent talent with opportunity" },
+    { "title": "Higher Education Pipeline", "text": "Building bridges from research and learning to career success" },
+    { "title": "Employer Partnerships", "text": "Driving business value through strategic practices and leadership commitment" },
+    { "title": "Community Collaboration", "text": "Cultivating networks and stakeholder relationships that expand reach and sustain long-term impact" },
+    { "title": "Lived Experience", "text": "Ensuring authentic perspectives guide every decision and action" }
+  ],
+  "hosts_title": "The Hosts",
+  "network_title": "The Network"
+}

@@ -1,0 +1,60 @@
+{
+  "title": "Event Agenda",
+  "tagline": "A shared schedule for building networks and sparking action.",
+  "low_sensory": "8:30am - 2:00pm Recharge Room (Low-Sensory Space)",
+  "items": [
+    { "start": "8:30am", "end": "9:00am", "type": "Check-In", "title": "Check-in or Register" },
+    { "start": "9:00am", "end": "9:05am", "type": "Event Welcome", "title": "Welcome and thank you to our sponsors." },
+    { "start": "9:05am", "end": "9:10am", "type": "Pittsburgh Welcome", "title": "Pittsburgh Welcome", "speakers_label": "Speaker", "speakers": "Steven Wray" },
+    { "start": "9:10am", "end": "9:30am", "type": "Opening Keynote", "title": "Untapped: Rethinking Talent At Work", "speakers_label": "Speaker", "speakers": "Dave Thompson" },
+    { "kind": "break", "label": "Break 9:30 - 9:45" },
+    {
+      "start": "9:45am", "end": "10:30am", "type": "Panel",
+      "title": "Recruitment Strategies & Creating a Pipeline",
+      "speakers_label": "Panelists", "speakers": "Tracy Powell-Rudy, Kristel Wisor, Jeff Durmis",
+      "moderator": "Kerry Stith",
+      "description": "This panel brings together leading experts to share practical strategies for building a recruitment pipeline for neurodivergent talent, from sourcing candidates to reducing barriers that disproportionately affect ND job seekers. They will highlight inclusive hiring practices and offer approaches for gaining buy-in across an organization."
+    },
+    {
+      "start": "10:30am", "end": "10:45am", "type": "Breakout",
+      "title": "Recruitment Strategies & Creating a Pipeline",
+      "description": "This breakout session gives attendees space to reflect on the panel's insights and share their own takeaways on sourcing, inclusive hiring practices, and reducing barriers for neurodivergent candidates. Participants will compare strategies, surface questions, and identify practical next steps they can bring back to their teams."
+    },
+    { "kind": "break", "label": "Break 10:45am-11:00am" },
+    {
+      "start": "11:00am", "end": "11:45am", "type": "Panel",
+      "title": "Retention, Promotion, & Leadership Development",
+      "speakers_label": "Panelists", "speakers": "Jeff Cowgill, Isabel Fields, Terry Huey, Pete Steiner",
+      "moderator": "Sammie Walker Herrera",
+      "description": "A panel of experts will outline organizational practices that drive retention, advancement, and leadership development for neurodivergent employees. Panelists will examine effective approaches to accommodations and disclosure, the manager capabilities required for clear and consistent support, and the business value of embedding these practices into culture and operations. They will also highlight strategies for developing talent, strengthening skill pathways, and designing promotion processes that recognize diverse strengths and deliver measurable outcomes."
+    },
+    {
+      "start": "11:45am", "end": "12:00pm", "type": "Breakout",
+      "title": "Retention, Promotion, & Leadership Development",
+      "description": "This breakout session gives attendees space to reflect on the insights shared in the retention and leadership development panel. Participants will discuss what stood out to them, from accommodations and manager readiness to talent development and promotion pathways, and consider how these ideas might apply in their own organizations. The conversation will help surface priorities and practical next steps for strengthening neuroinclusive practices."
+    },
+    { "kind": "break", "label": "Lunch 12:00pm-1:00pm" },
+    {
+      "start": "12:00pm", "end": "1:00pm", "type": "Lunch Keynote & Networking",
+      "title": "Belonging Is Built: What Autistic Employees Taught Us About Building Workplaces That Work for Them",
+      "speakers_label": "Speaker", "speakers": "Abigayle Jayroe",
+      "description": "Through the voices of autistic employees, this talk explores what makes people feel supported, understood, and able to do their best work. Together, we'll translate lived experience into small, free changes that create real impact — offering practical ways to build belonging, improve communication, and create workplaces where everyone can thrive."
+    },
+    {
+      "start": "1:00pm", "end": "1:15pm", "type": "Summary & Activity Introduction",
+      "title": "Turning Insight Into Impact",
+      "speakers_label": "Speaker", "speakers": "Sebastian Lacy",
+      "description": "This introduction will bring together the key ideas explored throughout the sessions, highlighting strategies for recruiting, supporting, and advancing neurodivergent talent across the employee lifecycle."
+    },
+    {
+      "start": "1:15pm", "end": "1:45pm", "type": "Breakout",
+      "title": "Turning Insight Into Impact",
+      "description": "Participants will identify priorities, map out practical next steps, and outline strategies that support meaningful, sustainable neuroinclusive change. It's a chance to shift from ideas to implementation with clarity and intention."
+    },
+    {
+      "start": "1:45pm", "end": "2:00pm", "type": "Closing",
+      "title": "Sustaining Momentum",
+      "description": "The closing invites attendees to consider how they will maintain progress beyond today, turning early wins into lasting change. It emphasizes continued learning, collaboration, and steady movement toward a more neuroinclusive culture."
+    }
+  ]
+}

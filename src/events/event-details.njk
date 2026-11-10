@@ -1,0 +1,54 @@
+---
+layout: layouts/event.njk
+pagination:
+  data: events
+  size: 1
+  alias: ev
+permalink: "/events/{{ ev.slug }}/event-details/"
+eleventyComputed:
+  title: "Event Details · {{ editions[ev.slug].event.menu_label }}"
+---
+{% set d = editions[ev.slug] %}
+{% set hero_title = "Event Details" %}{% set hero_tagline = "Get ready to attend." %}
+{% include "partials/page-hero.njk" %}
+{% set e = d.event %}
+<div class="wrap narrow-col details">
+  {% if e.registration.prices | length or e.registration.url %}
+  <section id="registration">
+    <h2>Registration</h2>
+    <ul class="prices">
+      {%- for p in e.registration.prices %}<li><strong>{{ p.label }}:</strong> {{ p.amount }}</li>{% endfor %}
+    </ul>
+    {% include "partials/register-button.njk" %}
+  </section>
+  {% endif %}
+
+  <section id="date-time">
+    <h2>Event Date &amp; Time</h2>
+    {% if e.date %}<h3>Date</h3><p>{{ e.date }}</p>{% else %}<p class="empty">Date to be announced.</p>{% endif %}
+    {% if e.checkin or e.time %}<h3>Time</h3>
+    {% if e.checkin %}<p>Check-in: {{ e.checkin }}</p>{% endif %}
+    {% if e.time %}<p>Event Time: {{ e.time }}</p>{% endif %}{% endif %}
+  </section>
+
+  <section id="location">
+    <h2>Location, Parking, &amp; Lodging</h2>
+    {% if e.location_name %}
+    <h3>Event Location</h3>
+    <p><strong>{{ e.location_name }}</strong>{% if e.location_detail %}<br>{{ e.location_detail }}{% endif %}{% if e.location_room %},<br>{{ e.location_room }}{% endif %}{% if e.location_address %}<br>{{ e.location_address }}{% endif %}</p>
+    {% else %}<p class="empty">Location to be announced.</p>{% endif %}
+    {% if e.parking_garage_name or e.street_parking %}
+    <h3>Parking</h3>
+    {% if e.parking_garage_name %}<h4>Parking Garage</h4><p>{{ e.parking_garage_name }}<br>{{ e.parking_garage_address }}</p>{% endif %}
+    {% if e.street_parking %}<h4>Street Parking</h4><p>{{ e.street_parking }}</p>{% endif %}
+    {% endif %}
+    {% if e.lodging | length %}
+    <h3>Lodging</h3>
+    <ul class="lodging">
+      {%- for l in e.lodging %}
+      <li><strong>{{ l.name }}</strong><br>{{ l.distance }}<br>{{ l.address }}</li>
+      {%- endfor %}
+    </ul>
+    {% endif %}
+  </section>
+</div>

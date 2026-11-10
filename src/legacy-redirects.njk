@@ -1,0 +1,14 @@
+---
+pagination:
+  data: legacyRedirects
+  size: 1
+  alias: r
+permalink: "{{ r.from }}index.html"
+eleventyExcludeFromCollections: true
+---
+<!doctype html>
+<meta charset="utf-8">
+<title>Moved</title>
+<link rel="canonical" href="{{ r.to | url }}">
+<meta http-equiv="refresh" content="0; url={{ r.to | url }}">
+<p>This page has moved to <a href="{{ r.to | url }}">{{ r.to | url }}</a>.</p>

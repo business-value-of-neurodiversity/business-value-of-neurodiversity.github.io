@@ -1,0 +1,17 @@
+{# The only header shown on edition pages (replaces the site-wide nav). Expects: ev #}
+{% set ed = editions[ev.slug] %}
+<header class="site-header edition-header">
+  <div class="wrap header-inner">
+    <a class="back-home" href="{{ '/' | url }}"><span aria-hidden="true">&larr;</span> Back to Home</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="edition-nav">Sections</button>
+    <p class="edition-name"><a href="{{ ('/events/' + ev.slug + '/') | url }}">{{ ed.event.title }}</a>{% if ed.event.date %} <span>· {{ ed.event.date }}</span>{% endif %}</p>
+    <nav aria-label="{{ ed.event.menu_label }} sections" id="edition-nav">
+      <ul class="edition-nav">
+        {%- for item in site.edition_nav %}
+        {%- set href = '/events/' + ev.slug + '/' + item.path %}
+        <li><a href="{{ href | url }}"{% if page.url == href %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>

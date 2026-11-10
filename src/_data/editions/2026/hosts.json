@@ -1,0 +1,18 @@
+{
+  "hosts": [
+    {
+      "name": "Olitsky Program",
+      "subtitle": "CMU's Career & Professional Development Center",
+      "url": "https://www.cmu.edu/career/students-and-alumni/access-and-opportunity/olitsky/index.html",
+      "logo": "/assets/images/editions/2026/logos/olitsky-program.png",
+      "description": "Aims to bridge the gap to meaningful employment for individuals who may identify with having cognitive or emotional differences. Leveraging the strengths of neurodistinct thinkers, this program is designed to be open and accessible to all."
+    },
+    {
+      "name": "Software and Societal Systems Department",
+      "subtitle": "CMU's School of Computer Science",
+      "url": "https://s3d.cmu.edu/",
+      "logo": "/assets/images/editions/2026/logos/s3d.png",
+      "description": "Part of the School of Computer Science at CMU"
+    }
+  ]
+}

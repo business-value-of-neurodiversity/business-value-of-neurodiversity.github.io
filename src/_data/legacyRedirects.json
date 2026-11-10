@@ -1,0 +1,22 @@
+[
+  {
+    "from": "/schedule/",
+    "to": "/events/2026/schedule/"
+  },
+  {
+    "from": "/speakers/",
+    "to": "/events/2026/speakers/"
+  },
+  {
+    "from": "/event-details/",
+    "to": "/events/2026/event-details/"
+  },
+  {
+    "from": "/event-sponsors/",
+    "to": "/events/2026/event-sponsors/"
+  },
+  {
+    "from": "/organizers/",
+    "to": "/events/2026/organizers/"
+  }
+]

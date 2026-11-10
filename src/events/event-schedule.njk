@@ -1,0 +1,35 @@
+---
+layout: layouts/event.njk
+pagination:
+  data: events
+  size: 1
+  alias: ev
+permalink: "/events/{{ ev.slug }}/schedule/"
+eleventyComputed:
+  title: "Schedule · {{ editions[ev.slug].event.menu_label }}"
+---
+{% set d = editions[ev.slug] %}
+{% set hero_title = d.schedule.title or "Schedule" %}{% set hero_tagline = d.schedule.tagline %}{% set hero_register = d %}
+{% include "partials/page-hero.njk" %}
+<section class="wrap narrow-col">
+  {% if d.schedule.low_sensory %}<p class="callout">{{ d.schedule.low_sensory }}</p>{% endif %}
+  {% if not (d.schedule.items | length) %}<p class="empty">The schedule will be posted here soon.</p>{% endif %}
+  <ol class="agenda">
+    {%- for item in d.schedule.items %}
+    {%- if item.kind == "break" %}
+    <li class="break">{{ item.label }}</li>
+    {%- else %}
+    <li class="session">
+      <p class="time">{{ item.start }} - {{ item.end }}</p>
+      <div>
+        <p class="type">{{ item.type }}</p>
+        <h2>{{ item.title }}</h2>
+        {%- if item.speakers %}<p class="who"><strong>{{ item.speakers_label }}:</strong> {{ item.speakers }}</p>{% endif %}
+        {%- if item.moderator %}<p class="who"><strong>Moderator:</strong> {{ item.moderator }}</p>{% endif %}
+        {%- if item.description %}<p>{{ item.description }}</p>{% endif %}
+      </div>
+    </li>
+    {%- endif %}
+    {%- endfor %}
+  </ol>
+</section>

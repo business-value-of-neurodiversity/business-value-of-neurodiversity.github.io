@@ -1,0 +1,47 @@
+{
+  "title": "About Us",
+  "tagline": "A network building neuroinclusive workplaces",
+  "body": [
+    "Innovating Pittsburgh is a recurring forum hosted at Carnegie Mellon University by the Olitsky Program of the Career & Professional Development Center and the Software and Societal Systems Department in the School of Computer Science.",
+    "The forum is organized by stakeholders committed to a shared mission: creating a network that fuels business impact and sustained neurodiversity-driven change. Our planning team lives the principle of \"nothing about us without us\"; more than half of the organizing team identify as neurodivergent."
+  ],
+  "mission_title": "What We Work On",
+  "mission": [
+    {
+      "title": "Workforce Development",
+      "text": "Shaping pathways that connect neurodivergent talent with opportunity"
+    },
+    {
+      "title": "Higher Education Pipeline",
+      "text": "Building bridges from research and learning to career success"
+    },
+    {
+      "title": "Employer Partnerships",
+      "text": "Driving business value through strategic practices and leadership commitment"
+    },
+    {
+      "title": "Community Collaboration",
+      "text": "Cultivating networks and stakeholder relationships that expand reach and sustain long-term impact"
+    },
+    {
+      "title": "Lived Experience",
+      "text": "Ensuring authentic perspectives guide every decision and action"
+    }
+  ],
+  "hosts_title": "Our Hosts",
+  "hosts": [
+    {
+      "name": "Olitsky Program",
+      "url": "https://www.cmu.edu/career/students-and-alumni/access-and-opportunity/olitsky/index.html",
+      "logo": "/assets/images/series/olitsky-program.png",
+      "description": "Aims to bridge the gap to meaningful employment for individuals who may identify with having cognitive or emotional differences. Leveraging the strengths of neurodistinct thinkers, this program is designed to be open and accessible to all."
+    },
+    {
+      "name": "Software and Societal Systems Department",
+      "url": "https://s3d.cmu.edu/",
+      "logo": "/assets/images/series/s3d.png",
+      "description": "Part of the School of Computer Science at CMU"
+    }
+  ],
+  "team_link_label": "Meet the organizers of our most recent forum"
+}

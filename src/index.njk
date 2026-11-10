@@ -1,0 +1,65 @@
+---
+layout: layouts/base.njk
+title: Home
+permalink: /
+---
+{% set up = events | upcomingEdition(editions) %}
+{% set past = events | pastEditions(editions) %}
+
+<section class="series-hero">
+  <div class="wrap">
+    <h1 class="visually-hidden">{{ site.title }}</h1>
+    <img src="{{ series.logo | url }}" alt="{{ series.logo_alt }}">
+  </div>
+</section>
+
+<section class="mission">
+  <div class="wrap">
+    <h2>{{ series.mission_title }}</h2>
+    <blockquote>{{ series.mission }}</blockquote>
+  </div>
+</section>
+
+<section class="band tint">
+  <div class="wrap">
+    <h2>{{ series.audience_title }}</h2>
+    <p class="lead narrow">{{ series.audience_intro }}</p>
+    <div class="audience-lite">
+      {%- for a in series.audiences %}
+      <article><h3>{{ a.name }}</h3><p>{{ a.description }}</p></article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+{% if up %}
+{% set ev = up.ed.event %}
+<section class="feature" aria-labelledby="upcoming-heading">
+  <div class="wrap">
+    <p class="eyebrow">{{ series.upcoming_eyebrow }}</p>
+    <h2 id="upcoming-heading">{{ ev.title }}</h2>
+    {%- if ev.subtitle %}<p class="when">{{ ev.subtitle }}</p>{% endif %}
+    {%- if ev.date %}<p class="when">{{ ev.date }}{% if ev.time %} · {{ ev.time }}{% endif %}</p>{% endif %}
+    {%- if ev.location_name %}<p>{% if ev.location_detail %}{{ ev.location_detail }}, {% endif %}{{ ev.location_name }}</p>{% endif %}
+    {%- if ev.status == "planned" %}<p>{{ series.upcoming_pending }}</p>{% endif %}
+    <div class="cta-row">
+      {%- if ev.registration.url and ev.status != "planned" %}<a class="button" href="{{ ev.registration.url }}">{{ ev.registration.button_label or "Register Here" }}</a>{% endif %}
+      <a class="button{% if ev.registration.url and ev.status != 'planned' %} ghost{% endif %}" href="{{ ('/events/' + up.slug + '/') | url }}">{{ series.learn_more_label }}</a>
+    </div>
+  </div>
+</section>
+{% else %}
+<section class="feature"><div class="wrap"><h2>{{ series.no_upcoming }}</h2></div></section>
+{% endif %}
+
+{% if past | length %}
+<section class="past-links">
+  <div class="wrap">
+    <h2>{{ series.past_title }}</h2>
+    <div class="row">
+      {%- for e in past %}<a class="button ghost" href="{{ ('/events/' + e.slug + '/') | url }}">{{ e.ed.event.menu_label }}</a>{% endfor %}
+      <a class="button ghost" href="{{ '/events/' | url }}">{{ series.past_all_label }}</a>
+    </div>
+  </div>
+</section>
+{% endif %}

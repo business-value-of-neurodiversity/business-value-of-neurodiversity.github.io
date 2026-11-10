@@ -1,0 +1,530 @@
+# Sveltia CMS configuration — the "contract" between the editing UI and the repo.
+# Maintained by developers. Editors never need to touch this file.
+# Each collection below maps a friendly form to a file (or folder of files) in Git.
+
+backend:
+  name: github
+  repo: business-value-of-neurodiversity/business-value-of-neurodiversity.github.io
+  branch: main
+  # base_url: https://YOUR-AUTH-WORKER.workers.dev   # needed for the "Sign in with GitHub" button (see docs/OPERATIONS.md)
+
+site_url: https://business-value-of-neurodiversity.github.io/
+display_url: https://business-value-of-neurodiversity.github.io/
+logo_url: /assets/images/site/favicon.png
+locale: en
+
+media_folder: /src/assets/images
+public_folder: /assets/images
+
+collections:
+  # ───────────────────────── Series-level content ─────────────────────────
+  - name: series
+    label: "Site-wide pages"
+    editor: { preview: false }
+    media_folder: /src/assets/images/series
+    public_folder: /assets/images/series
+    files:
+      - name: series_home
+        label: "Home page"
+        file: src/_data/series.json
+        fields:
+          - { name: logo, label: "Forum series logo", widget: image }
+          - { name: logo_alt, label: "Logo description (for screen readers)", widget: string }
+          - { name: mission_title, label: "Mission heading", widget: string }
+          - { name: mission, label: "Mission statement", widget: text }
+          - { name: audience_title, label: "Audience heading", widget: string }
+          - { name: audience_intro, label: "Audience description", widget: text }
+          - name: audiences
+            label: "Audience groups"
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: "Group", widget: string }
+              - { name: description, label: "Description", widget: text }
+          - { name: upcoming_eyebrow, label: "Small heading above the upcoming forum", widget: string }
+          - { name: upcoming_pending, label: "Text shown while the upcoming forum is still 'planned'", widget: text }
+          - { name: learn_more_label, label: "'Learn more' button text", widget: string }
+          - { name: past_title, label: "Past forums heading", widget: string }
+          - { name: past_all_label, label: "'All past events' button text", widget: string }
+          - { name: no_upcoming, label: "Text when no forum is scheduled", widget: string }
+      - name: resources
+        label: "Resources page"
+        file: src/_data/resources.json
+        fields:
+          - { name: title, label: "Page title", widget: string }
+          - { name: tagline, label: "Tagline", widget: string, required: false }
+          - { name: intro, label: "Introduction", widget: text, required: false }
+          - name: sections
+            label: "Sections"
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: "Section title", widget: string }
+              - name: items
+                label: "Links"
+                widget: list
+                summary: "{{fields.title}}"
+                fields:
+                  - { name: title, label: "Link text", widget: string }
+                  - { name: url, label: "Web address", widget: string }
+                  - { name: description, label: "Short description", widget: text, required: false }
+      - name: about
+        label: "About Us page"
+        file: src/_data/about.json
+        fields:
+          - { name: title, label: "Page title", widget: string }
+          - { name: tagline, label: "Tagline", widget: string, required: false }
+          - { name: body, label: "Paragraphs", widget: list, field: { name: paragraph, label: Paragraph, widget: text } }
+          - { name: mission_title, label: "Heading for the focus areas", widget: string }
+          - name: mission
+            label: "Focus areas"
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: "Title", widget: string }
+              - { name: text, label: "Description", widget: text }
+          - { name: hosts_title, label: "Hosts heading", widget: string }
+          - name: hosts
+            label: "Hosts"
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: "Name", widget: string }
+              - { name: url, label: "Website", widget: string }
+              - { name: logo, label: "Logo", widget: image, required: false }
+              - { name: description, label: "Description", widget: text }
+          - { name: team_link_label, label: "Button text linking to the latest organizers page", widget: string }
+
+  # ───────────────────────── Editions (one block per year) ─────────────────────────
+  # New blocks are inserted automatically above the marker below by `npm run new-edition`.
+  # ───────────── 2026 edition (generated by scripts/new-edition.mjs) ─────────────
+  - name: pages_2026
+    label: "2026 · Page content"
+    label_singular: "Page"
+    editor: { preview: false }
+    media_folder: /src/assets/images/editions/2026
+    public_folder: /assets/images/editions/2026
+    files:
+      - name: event
+        label: "Event details (name, date, place, prices)"
+        file: src/_data/editions/2026/event.json
+        fields:
+          - { name: menu_label, label: "Name in the Events menu (e.g. March 2026)", widget: string, required: false }
+          - { name: status, label: "Status (planned = \"details coming soon\" banner; published = upcoming; past = already happened)", widget: select, options: [planned, published, past], default: planned, required: false }
+          - { name: title, label: "Edition title", widget: string, required: false }
+          - { name: subtitle, label: "Subtitle", widget: string, required: false }
+          - { name: description, label: "Search-engine description", widget: text, required: false }
+          - { name: logo, label: "Edition logo (optional)", widget: image, required: false }
+          - { name: contact_email, label: "Contact email", widget: string, required: false }
+          - { name: date, label: "Date", widget: string, required: false }
+          - { name: time, label: "Event time", widget: string, required: false }
+          - { name: checkin, label: "Check-in time", widget: string, required: false }
+          - { name: location_name, label: "Venue (institution)", widget: string, required: false }
+          - { name: location_detail, label: "Building", widget: string, required: false }
+          - { name: location_room, label: "Room / floor", widget: string, required: false }
+          - { name: location_address, label: "Address", widget: string, required: false }
+          - { name: parking_garage_name, label: "Parking garage name", widget: string, required: false }
+          - { name: parking_garage_address, label: "Parking garage address", widget: string, required: false }
+          - { name: street_parking, label: "Street parking note", widget: string, required: false }
+          - name: lodging
+            label: "Lodging"
+            widget: list
+            required: false
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: "Hotel", widget: string, required: false }
+              - { name: distance, label: "Distance", widget: string, required: false }
+              - { name: address, label: "Address", widget: string, required: false }
+          - name: registration
+            label: "Registration"
+            widget: object
+            required: false
+            fields:
+              - { name: url, label: "Registration link", widget: string, required: false }
+              - { name: button_label, label: "Button text", widget: string, required: false }
+              - name: prices
+                label: "Ticket prices"
+                widget: list
+                required: false
+                summary: "{{fields.label}}: {{fields.amount}}"
+                fields:
+                  - { name: label, label: "Ticket type", widget: string, required: false }
+                  - { name: amount, label: "Price", widget: string, required: false }
+
+      - name: speakers_page
+        label: "Speakers page text"
+        file: src/_data/editions/2026/speakers.json
+        fields:
+          - { name: title, label: "Page title", widget: string, required: false }
+          - { name: tagline, label: "Tagline", widget: string, required: false }
+          - { name: closing, label: "Closing line", widget: string, required: false }
+
+      - name: home
+        label: "Home page"
+        file: src/_data/editions/2026/home.json
+        fields:
+          - { name: headline_line1, label: "Headline (red, line 1)", widget: string, required: false }
+          - { name: headline_line2, label: "Headline (black, line 2)", widget: string, required: false }
+          - { name: overview_title, label: "Overview heading", widget: string, required: false }
+          - { name: focus_areas_title, label: "Focus areas heading", widget: string, required: false }
+          - { name: focus_areas, label: "Focus areas", widget: list, field: { name: area, label: Area, widget: string }, required: false }
+          - { name: attend_title, label: "“Who should attend” heading", widget: string, required: false }
+          - { name: attend_intro, label: "“Who should attend” intro", widget: string, required: false }
+          - name: audiences
+            label: "Audiences & takeaways"
+            widget: list
+            required: false
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: "Audience", widget: string, required: false }
+              - { name: takeaways, label: "Takeaways", widget: list, field: { name: takeaway, label: Takeaway, widget: string }, required: false }
+          - { name: hosts_title, label: "Hosts section heading", widget: string, required: false }
+          - { name: hosted_by_label, label: "“Hosted by” label", widget: string, required: false }
+          - { name: sponsors_label, label: "Sponsors label", widget: string, required: false }
+          - { name: sponsors_link_label, label: "Sponsors button text", widget: string, required: false }
+          - { name: organizers_blurb, label: "Organizers blurb", widget: text, required: false }
+          - { name: organizers_link_label, label: "Organizers button text", widget: string, required: false }
+          - { name: closing_cta, label: "Closing call to action", widget: string, required: false }
+
+      - name: schedule
+        label: "Schedule / agenda"
+        file: src/_data/editions/2026/schedule.json
+        fields:
+          - { name: title, label: "Page title", widget: string, required: false }
+          - { name: tagline, label: "Tagline", widget: string, required: false }
+          - { name: low_sensory, label: "Low-sensory room notice", widget: string, required: false }
+          - name: items
+            label: "Agenda items (in time order)"
+            label_singular: "agenda item"
+            widget: list
+            required: false
+            summary: "{{fields.start}} {{fields.title}}{{fields.label}}"
+            fields:
+              - { name: kind, label: "Item kind", widget: select, options: [{ label: "Session", value: "" }, { label: "Break / meal bar", value: break }], required: false, default: "" }
+              - { name: label, label: "Break text (only for breaks, e.g. Break 9:30 - 9:45)", widget: string, required: false }
+              - { name: start, label: "Start time (e.g. 9:45am)", widget: string, required: false }
+              - { name: end, label: "End time", widget: string, required: false }
+              - { name: type, label: "Type (Panel, Breakout, Keynote...)", widget: string, required: false }
+              - { name: title, label: "Title", widget: string, required: false }
+              - { name: speakers_label, label: "Speaker label (Speaker / Panelists)", widget: string, required: false }
+              - { name: speakers, label: "Speakers (comma-separated)", widget: string, required: false }
+              - { name: moderator, label: "Moderator", widget: string, required: false }
+              - { name: description, label: "Description", widget: text, required: false }
+
+      - name: sponsors
+        label: "Sponsors"
+        file: src/_data/editions/2026/sponsors.json
+        fields:
+          - { name: title, label: "Page title", widget: string, required: false }
+          - { name: tagline, label: "Tagline", widget: string, required: false }
+          - { name: intro, label: "Intro paragraph", widget: text, required: false }
+          - { name: cta, label: "“Become a sponsor” text (email address is added automatically)", widget: string, required: false }
+          - { name: thanks, label: "Thank-you line", widget: string, required: false }
+          - name: tiers
+            label: "Sponsorship tiers"
+            widget: list
+            required: false
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: "Tier name", widget: string, required: false }
+              - name: sponsors
+                label: "Sponsors"
+                widget: list
+                required: false
+                summary: "{{fields.name}}"
+                fields:
+                  - { name: name, label: "Name (used as image alt text)", widget: string, required: false }
+                  - { name: logo, label: "Logo", widget: image, required: false }
+                  - { name: url, label: "Website (optional)", widget: string, required: false }
+
+      - name: organizers_page
+        label: "Organizers page text & hosts"
+        file: src/_data/editions/2026/organizers.json
+        fields:
+          - { name: title, label: "Page title", widget: string, required: false }
+          - { name: tagline, label: "Tagline", widget: string, required: false }
+          - { name: intro, label: "Intro paragraphs", widget: list, field: { name: paragraph, label: Paragraph, widget: text }, required: false }
+          - { name: mission_title, label: "Mission heading", widget: string, required: false }
+          - name: mission
+            label: "Mission items"
+            widget: list
+            required: false
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: "Title", widget: string, required: false }
+              - { name: text, label: "Description", widget: text, required: false }
+          - { name: hosts_title, label: "Hosts heading", widget: string, required: false }
+          - { name: network_title, label: "Network heading", widget: string, required: false }
+
+      - name: hosts
+        label: "Host organizations"
+        file: src/_data/editions/2026/hosts.json
+        fields:
+          - name: hosts
+            label: "Hosts"
+            widget: list
+            required: false
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: "Name", widget: string, required: false }
+              - { name: subtitle, label: "Subtitle", widget: string, required: false }
+              - { name: url, label: "Website", widget: string, required: false }
+              - { name: logo, label: "Logo", widget: image, required: false }
+              - { name: description, label: "Description", widget: text, required: false }
+
+  - name: speakers_2026
+    label: "2026 · Speakers"
+    label_singular: "Speaker"
+    folder: src/editions/2026/speakers
+    extension: md
+    format: yaml-frontmatter
+    create: true
+    slug: "{{slug}}"
+    identifier_field: name
+    summary: "{{name}} — {{session}}"
+    sortable_fields: [order, name]
+    view_groups:
+      - { label: Session, field: session }
+    fields:
+      - { name: name, label: "Name", widget: string }
+      - { name: title, label: "Job title & organization", widget: string }
+      - { name: session, label: "Session heading (speakers with the same text are grouped)", widget: string }
+      - { name: session_role, label: "Role in session", widget: select, options: ["", Panelist, Moderator], required: false, default: "" }
+      - { name: photo, label: "Photo", widget: image, required: false, media_folder: /src/assets/images/editions/2026/people, public_folder: /assets/images/editions/2026/people }
+      - { name: order, label: "Display order (1 = first)", widget: number, value_type: int, min: 1 }
+      - { name: body, label: "Biography", widget: markdown }
+
+  - name: organizers_2026
+    label: "2026 · Organizers"
+    label_singular: "Organizer"
+    folder: src/editions/2026/organizers
+    extension: md
+    format: yaml-frontmatter
+    create: true
+    slug: "{{slug}}"
+    identifier_field: name
+    summary: "{{name}} — {{title}}"
+    sortable_fields: [order, name]
+    fields:
+      - { name: name, label: "Name", widget: string }
+      - { name: title, label: "Job title & organization", widget: string }
+      - { name: photo, label: "Photo", widget: image, required: false, media_folder: /src/assets/images/editions/2026/people, public_folder: /assets/images/editions/2026/people }
+      - { name: order, label: "Display order (1 = first)", widget: number, value_type: int, min: 1 }
+      - { name: body, label: "Biography", widget: markdown }
+
+  # ───────────── 2027 edition (generated by scripts/new-edition.mjs) ─────────────
+  - name: pages_2027
+    label: "2027 · Page content"
+    label_singular: "Page"
+    editor: { preview: false }
+    media_folder: /src/assets/images/editions/2027
+    public_folder: /assets/images/editions/2027
+    files:
+      - name: event
+        label: "Event details (name, date, place, prices)"
+        file: src/_data/editions/2027/event.json
+        fields:
+          - { name: menu_label, label: "Name in the Events menu (e.g. March 2027)", widget: string, required: false }
+          - { name: status, label: "Status (planned = \"details coming soon\" banner; published = upcoming; past = already happened)", widget: select, options: [planned, published, past], default: planned, required: false }
+          - { name: title, label: "Edition title", widget: string, required: false }
+          - { name: subtitle, label: "Subtitle", widget: string, required: false }
+          - { name: description, label: "Search-engine description", widget: text, required: false }
+          - { name: logo, label: "Edition logo (optional)", widget: image, required: false }
+          - { name: contact_email, label: "Contact email", widget: string, required: false }
+          - { name: date, label: "Date", widget: string, required: false }
+          - { name: time, label: "Event time", widget: string, required: false }
+          - { name: checkin, label: "Check-in time", widget: string, required: false }
+          - { name: location_name, label: "Venue (institution)", widget: string, required: false }
+          - { name: location_detail, label: "Building", widget: string, required: false }
+          - { name: location_room, label: "Room / floor", widget: string, required: false }
+          - { name: location_address, label: "Address", widget: string, required: false }
+          - { name: parking_garage_name, label: "Parking garage name", widget: string, required: false }
+          - { name: parking_garage_address, label: "Parking garage address", widget: string, required: false }
+          - { name: street_parking, label: "Street parking note", widget: string, required: false }
+          - name: lodging
+            label: "Lodging"
+            widget: list
+            required: false
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: "Hotel", widget: string, required: false }
+              - { name: distance, label: "Distance", widget: string, required: false }
+              - { name: address, label: "Address", widget: string, required: false }
+          - name: registration
+            label: "Registration"
+            widget: object
+            required: false
+            fields:
+              - { name: url, label: "Registration link", widget: string, required: false }
+              - { name: button_label, label: "Button text", widget: string, required: false }
+              - name: prices
+                label: "Ticket prices"
+                widget: list
+                required: false
+                summary: "{{fields.label}}: {{fields.amount}}"
+                fields:
+                  - { name: label, label: "Ticket type", widget: string, required: false }
+                  - { name: amount, label: "Price", widget: string, required: false }
+
+      - name: speakers_page
+        label: "Speakers page text"
+        file: src/_data/editions/2027/speakers.json
+        fields:
+          - { name: title, label: "Page title", widget: string, required: false }
+          - { name: tagline, label: "Tagline", widget: string, required: false }
+          - { name: closing, label: "Closing line", widget: string, required: false }
+
+      - name: home
+        label: "Home page"
+        file: src/_data/editions/2027/home.json
+        fields:
+          - { name: headline_line1, label: "Headline (red, line 1)", widget: string, required: false }
+          - { name: headline_line2, label: "Headline (black, line 2)", widget: string, required: false }
+          - { name: overview_title, label: "Overview heading", widget: string, required: false }
+          - { name: focus_areas_title, label: "Focus areas heading", widget: string, required: false }
+          - { name: focus_areas, label: "Focus areas", widget: list, field: { name: area, label: Area, widget: string }, required: false }
+          - { name: attend_title, label: "“Who should attend” heading", widget: string, required: false }
+          - { name: attend_intro, label: "“Who should attend” intro", widget: string, required: false }
+          - name: audiences
+            label: "Audiences & takeaways"
+            widget: list
+            required: false
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: "Audience", widget: string, required: false }
+              - { name: takeaways, label: "Takeaways", widget: list, field: { name: takeaway, label: Takeaway, widget: string }, required: false }
+          - { name: hosts_title, label: "Hosts section heading", widget: string, required: false }
+          - { name: hosted_by_label, label: "“Hosted by” label", widget: string, required: false }
+          - { name: sponsors_label, label: "Sponsors label", widget: string, required: false }
+          - { name: sponsors_link_label, label: "Sponsors button text", widget: string, required: false }
+          - { name: organizers_blurb, label: "Organizers blurb", widget: text, required: false }
+          - { name: organizers_link_label, label: "Organizers button text", widget: string, required: false }
+          - { name: closing_cta, label: "Closing call to action", widget: string, required: false }
+
+      - name: schedule
+        label: "Schedule / agenda"
+        file: src/_data/editions/2027/schedule.json
+        fields:
+          - { name: title, label: "Page title", widget: string, required: false }
+          - { name: tagline, label: "Tagline", widget: string, required: false }
+          - { name: low_sensory, label: "Low-sensory room notice", widget: string, required: false }
+          - name: items
+            label: "Agenda items (in time order)"
+            label_singular: "agenda item"
+            widget: list
+            required: false
+            summary: "{{fields.start}} {{fields.title}}{{fields.label}}"
+            fields:
+              - { name: kind, label: "Item kind", widget: select, options: [{ label: "Session", value: "" }, { label: "Break / meal bar", value: break }], required: false, default: "" }
+              - { name: label, label: "Break text (only for breaks, e.g. Break 9:30 - 9:45)", widget: string, required: false }
+              - { name: start, label: "Start time (e.g. 9:45am)", widget: string, required: false }
+              - { name: end, label: "End time", widget: string, required: false }
+              - { name: type, label: "Type (Panel, Breakout, Keynote...)", widget: string, required: false }
+              - { name: title, label: "Title", widget: string, required: false }
+              - { name: speakers_label, label: "Speaker label (Speaker / Panelists)", widget: string, required: false }
+              - { name: speakers, label: "Speakers (comma-separated)", widget: string, required: false }
+              - { name: moderator, label: "Moderator", widget: string, required: false }
+              - { name: description, label: "Description", widget: text, required: false }
+
+      - name: sponsors
+        label: "Sponsors"
+        file: src/_data/editions/2027/sponsors.json
+        fields:
+          - { name: title, label: "Page title", widget: string, required: false }
+          - { name: tagline, label: "Tagline", widget: string, required: false }
+          - { name: intro, label: "Intro paragraph", widget: text, required: false }
+          - { name: cta, label: "“Become a sponsor” text (email address is added automatically)", widget: string, required: false }
+          - { name: thanks, label: "Thank-you line", widget: string, required: false }
+          - name: tiers
+            label: "Sponsorship tiers"
+            widget: list
+            required: false
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: "Tier name", widget: string, required: false }
+              - name: sponsors
+                label: "Sponsors"
+                widget: list
+                required: false
+                summary: "{{fields.name}}"
+                fields:
+                  - { name: name, label: "Name (used as image alt text)", widget: string, required: false }
+                  - { name: logo, label: "Logo", widget: image, required: false }
+                  - { name: url, label: "Website (optional)", widget: string, required: false }
+
+      - name: organizers_page
+        label: "Organizers page text & hosts"
+        file: src/_data/editions/2027/organizers.json
+        fields:
+          - { name: title, label: "Page title", widget: string, required: false }
+          - { name: tagline, label: "Tagline", widget: string, required: false }
+          - { name: intro, label: "Intro paragraphs", widget: list, field: { name: paragraph, label: Paragraph, widget: text }, required: false }
+          - { name: mission_title, label: "Mission heading", widget: string, required: false }
+          - name: mission
+            label: "Mission items"
+            widget: list
+            required: false
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: "Title", widget: string, required: false }
+              - { name: text, label: "Description", widget: text, required: false }
+          - { name: hosts_title, label: "Hosts heading", widget: string, required: false }
+          - { name: network_title, label: "Network heading", widget: string, required: false }
+
+      - name: hosts
+        label: "Host organizations"
+        file: src/_data/editions/2027/hosts.json
+        fields:
+          - name: hosts
+            label: "Hosts"
+            widget: list
+            required: false
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: "Name", widget: string, required: false }
+              - { name: subtitle, label: "Subtitle", widget: string, required: false }
+              - { name: url, label: "Website", widget: string, required: false }
+              - { name: logo, label: "Logo", widget: image, required: false }
+              - { name: description, label: "Description", widget: text, required: false }
+
+  - name: speakers_2027
+    label: "2027 · Speakers"
+    label_singular: "Speaker"
+    folder: src/editions/2027/speakers
+    extension: md
+    format: yaml-frontmatter
+    create: true
+    slug: "{{slug}}"
+    identifier_field: name
+    summary: "{{name}} — {{session}}"
+    sortable_fields: [order, name]
+    view_groups:
+      - { label: Session, field: session }
+    fields:
+      - { name: name, label: "Name", widget: string }
+      - { name: title, label: "Job title & organization", widget: string }
+      - { name: session, label: "Session heading (speakers with the same text are grouped)", widget: string }
+      - { name: session_role, label: "Role in session", widget: select, options: ["", Panelist, Moderator], required: false, default: "" }
+      - { name: photo, label: "Photo", widget: image, required: false, media_folder: /src/assets/images/editions/2027/people, public_folder: /assets/images/editions/2027/people }
+      - { name: order, label: "Display order (1 = first)", widget: number, value_type: int, min: 1 }
+      - { name: body, label: "Biography", widget: markdown }
+
+  - name: organizers_2027
+    label: "2027 · Organizers"
+    label_singular: "Organizer"
+    folder: src/editions/2027/organizers
+    extension: md
+    format: yaml-frontmatter
+    create: true
+    slug: "{{slug}}"
+    identifier_field: name
+    summary: "{{name}} — {{title}}"
+    sortable_fields: [order, name]
+    fields:
+      - { name: name, label: "Name", widget: string }
+      - { name: title, label: "Job title & organization", widget: string }
+      - { name: photo, label: "Photo", widget: image, required: false, media_folder: /src/assets/images/editions/2027/people, public_folder: /assets/images/editions/2027/people }
+      - { name: order, label: "Display order (1 = first)", widget: number, value_type: int, min: 1 }
+      - { name: body, label: "Biography", widget: markdown }
+
+  # @@EDITIONS-INSERT-ABOVE@@

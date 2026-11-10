@@ -1,0 +1,21 @@
+---
+layout: layouts/page.njk
+permalink: /resources/
+title: Resources
+eleventyComputed:
+  hero_title: "{{ resources.title }}"
+  hero_tagline: "{{ resources.tagline }}"
+---
+<div class="wrap narrow-col">
+  {% if resources.intro %}<p class="lead">{{ resources.intro }}</p>{% endif %}
+  {%- for section in resources.sections %}
+  <section class="resource-section">
+    <h2>{{ section.title }}</h2>
+    <ul class="resource-list">
+      {%- for item in section.items %}
+      <li><a href="{{ item.url }}">{{ item.title }}</a>{% if item.description %}<p>{{ item.description }}</p>{% endif %}</li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endfor %}
+</div>

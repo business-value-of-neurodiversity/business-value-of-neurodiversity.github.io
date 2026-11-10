@@ -1,0 +1,36 @@
+---
+layout: layouts/page.njk
+permalink: /about/
+title: About Us
+eleventyComputed:
+  hero_title: "{{ about.title }}"
+  hero_tagline: "{{ about.tagline }}"
+---
+{% set past = events | pastEditions(editions) %}
+<div class="wrap">
+  <div class="narrow-col about-body">
+    {%- for p in about.body %}<p>{{ p }}</p>{% endfor %}
+  </div>
+  <section>
+    <h2>{{ about.mission_title }}</h2>
+    <ul class="mission-grid">
+      {%- for m in about.mission %}<li><h3>{{ m.title }}</h3><p>{{ m.text }}</p></li>{% endfor %}
+    </ul>
+  </section>
+  <section class="about-hosts">
+    <h2>{{ about.hosts_title }}</h2>
+    <div class="host-row">
+      {%- for h in about.hosts %}
+      <a class="host" href="{{ h.url }}">
+        {%- if h.logo %}<img src="{{ h.logo | url }}" alt="{{ h.name }}" loading="lazy">{% endif %}
+        <span>{{ h.name }}</span>
+        <small>{{ h.description }}</small>
+      </a>
+      {%- endfor %}
+    </div>
+  </section>
+  {% if past | length %}
+  <p class="center"><a class="button ghost" href="{{ ('/events/' + past[0].slug + '/organizers/') | url }}">{{ about.team_link_label }}</a></p>
+  {% endif %}
+  <p class="center">Questions? <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a></p>
+</div>

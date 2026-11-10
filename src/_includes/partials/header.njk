@@ -1,0 +1,29 @@
+{% set up = events | upcomingEdition(editions) %}
+{% set past = events | pastEditions(editions) %}
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="{{ '/' | url }}">{{ site.title }}</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav aria-label="Main" id="main-nav">
+      <ul class="main-nav">
+        <li><a href="{{ '/' | url }}"{% if page.url == "/" %} aria-current="page"{% endif %}>Home</a></li>
+        {%- if up %}
+        <li><a href="{{ ('/events/' + up.slug + '/') | url }}"{% if page.url.startsWith('/events/' + up.slug + '/') %} aria-current="true"{% endif %}>Upcoming: {{ up.ed.event.menu_label }}</a></li>
+        {%- endif %}
+        <li class="has-sub">
+          <a href="{{ '/events/' | url }}"{% if page.url == "/events/" %} aria-current="page"{% elif page.url.startsWith("/events/") and not (up and page.url.startsWith('/events/' + up.slug + '/')) %} aria-current="true"{% endif %}>Past Events</a>
+          {%- if past | length %}
+          <ul class="sub-nav">
+            {%- for e in past %}
+            <li><a href="{{ ('/events/' + e.slug + '/') | url }}"{% if page.url.startsWith('/events/' + e.slug + '/') %} aria-current="true"{% endif %}>{{ e.ed.event.menu_label }}</a></li>
+            {%- endfor %}
+            <li class="sub-all"><a href="{{ '/events/' | url }}">All past events</a></li>
+          </ul>
+          {%- endif %}
+        </li>
+        <li><a href="{{ '/resources/' | url }}"{% if page.url == "/resources/" %} aria-current="page"{% endif %}>Resources</a></li>
+        <li><a href="{{ '/about/' | url }}"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About Us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,32 @@
+{
+  "title": "Innovating Pittsburgh",
+  "description": "A recurring forum on the business value of neurodiversity, hosted at Carnegie Mellon University.",
+  "favicon": "/assets/images/site/favicon.png",
+  "contact_email": "atavares@andrew.cmu.edu",
+  "edition_nav": [
+    {
+      "label": "Overview",
+      "path": ""
+    },
+    {
+      "label": "Schedule",
+      "path": "schedule/"
+    },
+    {
+      "label": "Speakers",
+      "path": "speakers/"
+    },
+    {
+      "label": "Event Details",
+      "path": "event-details/"
+    },
+    {
+      "label": "Sponsors",
+      "path": "event-sponsors/"
+    },
+    {
+      "label": "Organizers",
+      "path": "organizers/"
+    }
+  ]
+}

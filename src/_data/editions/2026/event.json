@@ -1,0 +1,45 @@
+{
+  "menu_label": "March 2026",
+  "status": "past",
+  "title": "Innovating Pittsburgh 2026",
+  "subtitle": "The Business Value of Neurodiversity",
+  "description": "A one-day forum on the business value of neurodiversity: recruitment, retention, and action planning for employers. March 4, 2026 at Carnegie Mellon University.",
+  "logo": "/assets/images/editions/2026/site/innovating-pittsburgh-logo.png",
+  "contact_email": "atavares@andrew.cmu.edu",
+  "registration": {
+    "url": "https://carnegiemellontickets.universitytickets.com/w/event.aspx?id=2650&p=1",
+    "button_label": "Register Here",
+    "prices": [
+      {
+        "label": "Non-profit",
+        "amount": "$100.00"
+      },
+      {
+        "label": "For-profit",
+        "amount": "$150.00"
+      }
+    ]
+  },
+  "date": "March 4, 2026",
+  "time": "9:00am-2:00pm",
+  "checkin": "8:30am - 9:00am",
+  "location_name": "Carnegie Mellon University",
+  "location_detail": "Jared L. Cohon University Center",
+  "location_room": "Rangos Ballroom, 2nd Floor",
+  "location_address": "5032 Forbes Avenue, Pittsburgh, PA 15213",
+  "parking_garage_name": "East Campus Garage",
+  "parking_garage_address": "5040 Forbes Ave, Pittsburgh, PA 15213",
+  "street_parking": "Street parking is available on Carnegie Mellon University's campus.",
+  "lodging": [
+    {
+      "name": "Courtyard by Marriott Pittsburgh University Center",
+      "distance": "0.6 miles from Carnegie Mellon University",
+      "address": "100 Lytton Avenue, Pittsburgh, PA, 15213"
+    },
+    {
+      "name": "The Oaklander Hotel",
+      "distance": "0.6 miles from Carnegie Mellon University",
+      "address": "5130 Bigelow Blvd, Pittsburgh, PA 15213"
+    }
+  ]
+}

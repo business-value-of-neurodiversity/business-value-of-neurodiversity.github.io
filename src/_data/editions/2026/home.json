@@ -1,0 +1,59 @@
+{
+  "headline_line1": "Learn together. Plan with purpose.",
+  "headline_line2": "Move your workplace forward.",
+  "overview_title": "Event Overview",
+  "focus_areas_title": "Focus Areas",
+  "focus_areas": [
+    "The Business Value of Neurodiversity",
+    "Recruitment Strategies & Talent Pipelines",
+    "Retention, Advancement, & Leadership",
+    "Strategic Action Planning & Partnership Development"
+  ],
+  "attend_title": "Who Should Attend",
+  "attend_intro": "Current & Future",
+  "audiences": [
+    {
+      "name": "Managers & Supervisors",
+      "takeaways": [
+        "Discover practices that reduce turnover and improve retention",
+        "Build skills to lead diverse teams with confidence",
+        "Prepare for future workforce needs with neuroinclusive leadership",
+        "Expand your network of workplace champions and peers"
+      ]
+    },
+    {
+      "name": "Human Resources Professionals",
+      "takeaways": [
+        "Gain strategies for reaching untapped talent to meet your hiring needs",
+        "Learn how others implement neuroinclusive hiring",
+        "Build a network of HR peers and other champions",
+        "Learn how to set clear expectations that accommodate different work styles"
+      ]
+    },
+    {
+      "name": "Executive & Senior Leaders",
+      "takeaways": [
+        "Discover neurodiversity's role in innovation and growth",
+        "Gain insights into measurable ROI from inclusive practices",
+        "Understand inclusion's impact on culture and engagement",
+        "Hear success stories from industry leaders with proven outcomes"
+      ]
+    },
+    {
+      "name": "Workplace Allies",
+      "takeaways": [
+        "Gain awareness of different communication and work styles",
+        "Recognize and celebrate diverse contributions in the workplace",
+        "Hear real stories of impact from neurodiverse professionals",
+        "Connect with a community of allies and champions committed to change"
+      ]
+    }
+  ],
+  "hosts_title": "Hosts, Sponsors, & Organizers",
+  "hosted_by_label": "Hosted By",
+  "sponsors_label": "Sponsors who are making this event possible",
+  "sponsors_link_label": "Our Sponsors",
+  "organizers_blurb": "Organized by stakeholders committed to the forum's mission of creating a network that fuels business impact and sustained neurodiversity-driven change. Guided by \"nothing with us without us,\" more than half of the organizing team identify as neurodivergent.",
+  "organizers_link_label": "Meet the hosts & organizers",
+  "closing_cta": "Join us to drive business innovation through neurodiversity!"
+}

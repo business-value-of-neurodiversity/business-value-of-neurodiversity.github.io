@@ -1,0 +1,8 @@
+{# Expects: hero_title, optional hero_tagline, optional hero_register (an edition 'd') #}
+<section class="page-hero">
+  <div class="wrap">
+    <h1>{{ hero_title }}</h1>
+    {% if hero_tagline %}<p class="tagline">{{ hero_tagline }}</p>{% endif %}
+    {% if hero_register and hero_register.event.registration.url %}{% set d = hero_register %}{% include "partials/register-button.njk" %}{% endif %}
+  </div>
+</section>

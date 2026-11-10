@@ -1,0 +1,13 @@
+{# Expects: person (an Eleventy collection item), id #}
+<article class="person" id="{{ person.data.name | anchor }}">
+  {% if person.data.photo %}
+  <img class="person-photo" src="{{ person.data.photo | url }}" alt="Photo of {{ person.data.name }}" loading="lazy" width="160" height="160">
+  {% else %}
+  <div class="person-photo placeholder" aria-hidden="true">{{ person.data.name | initials }}</div>
+  {% endif %}
+  <div class="person-body">
+    <h3>{{ person.data.name }}{% if person.data.session_role %} <span class="role-tag">{{ person.data.session_role }}</span>{% endif %}</h3>
+    <p class="person-title">{{ person.data.title }}</p>
+    <div class="person-bio">{{ person.content | safe }}</div>
+  </div>
+</article>

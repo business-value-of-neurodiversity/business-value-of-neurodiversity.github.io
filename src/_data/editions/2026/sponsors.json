@@ -1,0 +1,23 @@
+{
+  "title": "Our Sponsors",
+  "tagline": "Recognizing the sponsors who make this event possible.",
+  "intro": "Our sponsors make this event possible. Their support drives innovation, inclusion, and impact across workplaces. By investing in neurodiversity, they help shape the future of work and strengthen communities.",
+  "cta": "Want to support the Forum and shape the future of work? Email",
+  "thanks": "Thank you for your support of this event and its mission.",
+  "tiers": [
+    {
+      "name": "Opportunity Amplifier",
+      "sponsors": [
+        { "name": "mespace by Hollman", "logo": "/assets/images/editions/2026/logos/mespace.png", "url": "" }
+      ]
+    },
+    {
+      "name": "Community Allies",
+      "sponsors": [
+        { "name": "Mercyhurst University, Brad McGarry Center for Neurodiversity", "logo": "/assets/images/editions/2026/logos/mercyhurst.png", "url": "" },
+        { "name": "The Kubina Family Charitable Fund", "logo": "/assets/images/editions/2026/logos/kubina-family-fund.png", "url": "" },
+        { "name": "Southern Great Lakes Region Neurodiversity at Work Hub", "logo": "/assets/images/editions/2026/logos/sglr-nw-hub.png", "url": "" }
+      ]
+    }
+  ]
+}

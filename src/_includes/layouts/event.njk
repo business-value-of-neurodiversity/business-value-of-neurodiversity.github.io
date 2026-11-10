@@ -1,0 +1,8 @@
+---
+layout: layouts/base.njk
+---
+{# Edition pages get their own header (partials/edition-header.njk) instead of the site-wide nav. #}
+{% if editions[ev.slug].event.status == "planned" %}
+<p class="planned-banner">Planning for this edition is underway. Details will be posted here as they are confirmed.</p>
+{% endif %}
+{{ content | safe }}

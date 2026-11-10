@@ -1,0 +1,4 @@
+{# Expects: d (the edition's data) #}
+{% if d.event.registration.url %}
+<p class="cta"><a class="button" href="{{ d.event.registration.url }}">{{ d.event.registration.button_label or "Register Here" }}</a></p>
+{% endif %}

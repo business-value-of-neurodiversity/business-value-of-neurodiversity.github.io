@@ -1,0 +1,32 @@
+---
+layout: layouts/event.njk
+pagination:
+  data: events
+  size: 1
+  alias: ev
+permalink: "/events/{{ ev.slug }}/event-sponsors/"
+eleventyComputed:
+  title: "Sponsors · {{ editions[ev.slug].event.menu_label }}"
+---
+{% set d = editions[ev.slug] %}
+{% set hero_title = d.sponsors.title or "Our Sponsors" %}{% set hero_tagline = d.sponsors.tagline %}
+{% include "partials/page-hero.njk" %}
+<div class="wrap narrow-col">
+  {% if d.sponsors.intro %}<p class="lead">{{ d.sponsors.intro }}</p>{% endif %}
+  {% if d.sponsors.cta and d.event.contact_email %}<p class="callout">{{ d.sponsors.cta }} <a href="mailto:{{ d.event.contact_email }}">{{ d.event.contact_email }}</a></p>{% endif %}
+  {%- for tier in d.sponsors.tiers %}
+  <section class="tier">
+    <h2>{{ tier.name }}</h2>
+    <ul class="logo-grid">
+      {%- for s in tier.sponsors %}
+      <li>
+        {%- if s.url %}<a href="{{ s.url }}">{% endif -%}
+        <img src="{{ s.logo | url }}" alt="{{ s.name }}" loading="lazy">
+        {%- if s.url %}</a>{% endif -%}
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endfor %}
+  {% if d.sponsors.thanks %}<p class="center thanks">{{ d.sponsors.thanks }}</p>{% endif %}
+</div>

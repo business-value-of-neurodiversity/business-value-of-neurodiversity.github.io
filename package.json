@@ -1,0 +1,20 @@
+{
+  "name": "innovating-pittsburgh-2026",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Innovating Pittsburgh 2026 forum website (Eleventy + Sveltia CMS)",
+  "type": "module",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "clean": "rm -rf _site",
+    "new-edition": "node scripts/new-edition.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.8",
+    "@sveltia/cms": "^0.262.2"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "title": "Resources",
+  "tagline": "Learn more and keep the conversation going.",
+  "intro": "Links to our hosts and partners. More resources will be added here over time.",
+  "sections": [
+    {
+      "title": "From our hosts",
+      "items": [
+        {
+          "title": "Olitsky Program",
+          "url": "https://www.cmu.edu/career/students-and-alumni/access-and-opportunity/olitsky/index.html",
+          "description": "Bridging the gap to meaningful employment for individuals who may identify with having cognitive or emotional differences."
+        },
+        {
+          "title": "CMU Career & Professional Development Center",
+          "url": "https://www.cmu.edu/career/index.html",
+          "description": ""
+        },
+        {
+          "title": "Software and Societal Systems Department",
+          "url": "https://s3d.cmu.edu/",
+          "description": "Part of the School of Computer Science at CMU."
+        },
+        {
+          "title": "CMU School of Computer Science",
+          "url": "https://www.scs.cmu.edu/",
+          "description": ""
+        }
+      ]
+    }
+  ]
+}

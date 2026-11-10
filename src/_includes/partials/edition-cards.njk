@@ -1,0 +1,12 @@
+{# Expects: cards (list of { slug, ed }) #}
+<ul class="edition-cards">
+  {%- for e in cards %}
+  <li class="edition-card">
+    {%- if e.ed.event.logo %}<img src="{{ e.ed.event.logo | url }}" alt="" loading="lazy">{% endif %}
+    <h3><a href="{{ ('/events/' + e.slug + '/') | url }}">{{ e.ed.event.title }}</a></h3>
+    <p class="edition-date">{{ e.ed.event.date }}</p>
+    {%- if e.ed.event.subtitle %}<p>{{ e.ed.event.subtitle }}</p>{% endif %}
+    <p><a class="button ghost" href="{{ ('/events/' + e.slug + '/') | url }}">View edition</a></p>
+  </li>
+  {%- endfor %}
+</ul>

@@ -1,0 +1,27 @@
+---
+layout: layouts/event.njk
+pagination:
+  data: events
+  size: 1
+  alias: ev
+permalink: "/events/{{ ev.slug }}/speakers/"
+eleventyComputed:
+  title: "Speakers · {{ editions[ev.slug].event.menu_label }}"
+---
+{% set d = editions[ev.slug] %}
+{% set hero_title = d.speakers.title or "Speakers" %}{% set hero_tagline = d.speakers.tagline %}
+{% include "partials/page-hero.njk" %}
+{% set groups = collections.speakers | forEdition(ev.slug) | groupBySession %}
+<div class="wrap">
+  {% if not groups.length %}<p class="empty">Speakers will be announced here soon.</p>{% endif %}
+  {%- for group in groups %}
+  <section class="speaker-group">
+    <h2>{{ group.session }}</h2>
+    {%- for speaker in group.people %}
+    {% set person = speaker %}
+    {% include "partials/person.njk" %}
+    {%- endfor %}
+  </section>
+  {%- endfor %}
+  {% if d.speakers.closing and groups.length %}<p class="center thanks">{{ d.speakers.closing }}</p>{% endif %}
+</div>

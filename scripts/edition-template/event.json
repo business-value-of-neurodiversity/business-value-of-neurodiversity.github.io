@@ -1,0 +1,25 @@
+{
+  "menu_label": "March @@YEAR@@",
+  "status": "planned",
+  "title": "Innovating Pittsburgh @@YEAR@@",
+  "subtitle": "The Business Value of Neurodiversity",
+  "description": "",
+  "logo": "",
+  "contact_email": "",
+  "date": "March @@YEAR@@",
+  "time": "",
+  "checkin": "",
+  "location_name": "",
+  "location_detail": "",
+  "location_room": "",
+  "location_address": "",
+  "parking_garage_name": "",
+  "parking_garage_address": "",
+  "street_parking": "",
+  "lodging": [],
+  "registration": {
+    "url": "",
+    "button_label": "Register Here",
+    "prices": []
+  }
+}
