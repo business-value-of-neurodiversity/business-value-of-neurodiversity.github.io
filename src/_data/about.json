@@ -49,5 +49,25 @@
       "description": "Our research mission is to create inclusive workplaces where all people can be successful, without discrimination, especially those with disabilities and the neurodivergent."
     }
   ],
-  "team_link_label": "Meet the organizers of our most recent forum"
+  "team_link_label": "Meet the organizers of our most recent forum",
+  "founders_title": "Co-Founders",
+  "founders": [
+    {
+      "name": "Amy Tavares",
+      "title": "Program Manager, Olitsky Program, CMU",
+      "photo": "/assets/images/series/amy-tavares.jpg",
+      "bio": [
+        "Amy Tavares MS, NCC, LPC (she/her) is the inaugural program manager of Carnegie Mellon University's Olitsky Program. The Olitsky Program aims to bridge the gap to meaningful employment for individuals who may identify with having cognitive or emotional differences. It provides strength-based guidance, builds partnerships with employers and communities, and creates opportunities to showcase talents and launch successful careers.",
+        "Amy is passionate about increasing awareness and accessibility for individuals with all different abilities on campus, on the job, and in the community through collaborative efforts."
+      ]
+    },
+    {
+      "name": "Dr. Andrew Begel",
+      "title": "Associate Professor, Software and Societal Systems Department, CMU",
+      "photo": "/assets/images/series/andrew-begel.png",
+      "bio": [
+        "Dr. Andrew Begel, PhD is a tenured Associate Professor at Carnegie Mellon University. He is known internationally for his pioneering research and leadership in accessibility and inclusion in technology. He runs the VariAbility Lab, which aims to create inclusive workplaces where all people, especially the neurodivergent, can be successful without discrimination. Dr. Begel co-founded the Neurodiversity at Work Research Conference series and the Southern Great Lakes Region Neurodiversity at Work Hub, both of which bring together interdisciplinary researchers, employers, service providers, and self-advocates to help neurodivergent individuals find jobs and stay employed."
+      ]
+    }
+  ]
 }

@@ -32,7 +32,7 @@ eleventyComputed:
     <div class="host-row">
       {%- for h in d.hosts.hosts %}
       <a class="host" href="{{ h.url }}">
-        {%- if h.logo %}<img src="{{ h.logo | url }}" alt="{{ h.name }}" loading="lazy">{% endif %}
+        {%- if h.logo %}<img src="{{ h.logo | url }}" alt="" loading="lazy">{% endif %}
         <span>{{ h.name }}</span>
         <small>{{ h.description }}</small>
       </a>

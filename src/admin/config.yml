@@ -67,6 +67,7 @@ collections:
                 fields:
                   - { name: title, label: "Link text", widget: string }
                   - { name: url, label: "Web address", widget: string }
+                  - { name: logo, label: "Logo image (optional; shown beside the link)", widget: image, required: false }
                   - { name: description, label: "Short description", widget: text, required: false }
       - name: about
         label: "About Us page"
@@ -93,6 +94,17 @@ collections:
               - { name: url, label: "Website", widget: string }
               - { name: logo, label: "Logo", widget: image, required: false }
               - { name: description, label: "Description", widget: text }
+          - { name: founders_title, label: "Co-Founders heading", widget: string }
+          - name: founders
+            label: "Co-Founders"
+            widget: list
+            required: false
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: "Name", widget: string }
+              - { name: title, label: "Job title & organization", widget: string }
+              - { name: photo, label: "Photo", widget: image, required: false }
+              - { name: bio, label: "Biography (one entry per paragraph)", widget: list, field: { name: paragraph, label: Paragraph, widget: text } }
           - { name: team_link_label, label: "Button text linking to the latest organizers page", widget: string }
 
   # ───────────────────────── Editions (one block per year) ─────────────────────────

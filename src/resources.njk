@@ -13,7 +13,10 @@ eleventyComputed:
     <h2>{{ section.title }}</h2>
     <ul class="resource-list">
       {%- for item in section.items %}
-      <li><a href="{{ item.url }}">{{ item.title }}</a>{% if item.description %}<p>{{ item.description }}</p>{% endif %}</li>
+      <li{% if item.logo %} class="has-logo"{% endif %}>
+        {%- if item.logo %}<img class="resource-logo" src="{{ item.logo | url }}" alt="" loading="lazy">{% endif %}
+        <div><a href="{{ item.url }}">{{ item.title }}</a>{% if item.description %}<p>{{ item.description }}</p>{% endif %}</div>
+      </li>
       {%- endfor %}
     </ul>
   </section>

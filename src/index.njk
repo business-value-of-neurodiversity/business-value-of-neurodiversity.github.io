@@ -44,7 +44,7 @@ permalink: /
     {%- if ev.status == "planned" %}<p>{{ series.upcoming_pending }}</p>{% endif %}
     <div class="cta-row">
       {%- if ev.registration.url and ev.status != "planned" %}<a class="button" href="{{ ev.registration.url }}">{{ ev.registration.button_label or "Register Here" }}</a>{% endif %}
-      <a class="button{% if ev.registration.url and ev.status != 'planned' %} ghost{% endif %}" href="{{ ('/events/' + up.slug + '/') | url }}">{{ series.learn_more_label }}</a>
+      <a class="button{% if ev.registration.url and ev.status != 'planned' %} ghost{% endif %}" href="{{ ('/events/' + up.slug + '/') | url }}">{{ series.learn_more_label }}<span class="visually-hidden"> about {{ ev.title }}</span></a>
     </div>
   </div>
 </section>

@@ -9,22 +9,26 @@
         {
           "title": "Olitsky Program",
           "url": "https://www.cmu.edu/career/students-and-alumni/access-and-opportunity/olitsky/index.html",
-          "description": "Bridging the gap to meaningful employment for individuals who may identify with having cognitive or emotional differences."
+          "description": "Bridging the gap to meaningful employment for individuals who may identify with having cognitive or emotional differences.",
+          "logo": "/assets/images/series/olitsky-program.png"
         },
         {
           "title": "CMU Career & Professional Development Center",
           "url": "https://www.cmu.edu/career/index.html",
-          "description": ""
+          "description": "",
+          "logo": ""
         },
         {
           "title": "Software and Societal Systems Department",
           "url": "https://s3d.cmu.edu/",
-          "description": "Part of the School of Computer Science at CMU."
+          "description": "Part of the School of Computer Science at CMU.",
+          "logo": "/assets/images/series/s3d.png"
         },
         {
           "title": "CMU School of Computer Science",
           "url": "https://www.scs.cmu.edu/",
-          "description": ""
+          "description": "",
+          "logo": ""
         }
       ]
     }

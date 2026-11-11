@@ -1,4 +1,4 @@
-{# Expects: person (an Eleventy collection item), id #}
+{# Expects: person. Either an Eleventy collection item (bio in person.content) or { data: {name,title,photo}, bio: [paragraphs] } #}
 <article class="person" id="{{ person.data.name | anchor }}">
   {% if person.data.photo %}
   <img class="person-photo" src="{{ person.data.photo | url }}" alt="Photo of {{ person.data.name }}" loading="lazy" width="160" height="160">
@@ -8,6 +8,6 @@
   <div class="person-body">
     <h3>{{ person.data.name }}{% if person.data.session_role %} <span class="role-tag">{{ person.data.session_role }}</span>{% endif %}</h3>
     <p class="person-title">{{ person.data.title }}</p>
-    <div class="person-bio">{{ person.content | safe }}</div>
+    <div class="person-bio">{% if person.bio %}{% for para in person.bio %}<p>{{ para }}</p>{% endfor %}{% else %}{{ person.content | safe }}{% endif %}</div>
   </div>
 </article>

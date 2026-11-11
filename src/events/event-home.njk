@@ -12,6 +12,7 @@ eleventyComputed:
 {% if d.event.logo %}
 <section class="hero">
   <div class="wrap">
+    <h1 class="visually-hidden">{{ d.event.title }}{% if d.event.subtitle %}: {{ d.event.subtitle }}{% endif %}</h1>
     <img class="hero-logo" src="{{ d.event.logo | url }}" alt="{{ d.event.title }}: {{ d.event.subtitle }}. {{ d.event.date }}">
     {% if d.home.headline_line1 %}<p class="hero-line"><span class="accent">{{ d.home.headline_line1 }}</span><br>{{ d.home.headline_line2 }}</p>{% endif %}
     {% include "partials/register-button.njk" %}
@@ -68,7 +69,7 @@ eleventyComputed:
     <div class="host-row">
       {%- for h in d.hosts.hosts %}
       <a class="host" href="{{ h.url }}">
-        {%- if h.logo %}<img src="{{ h.logo | url }}" alt="{{ h.name }}" loading="lazy">{% endif %}
+        {%- if h.logo %}<img src="{{ h.logo | url }}" alt="" loading="lazy">{% endif %}
         <span>{{ h.name }}</span>
         <small>{{ h.subtitle }}</small>
       </a>
